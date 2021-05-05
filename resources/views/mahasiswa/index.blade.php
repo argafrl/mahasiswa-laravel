@@ -5,15 +5,23 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h1 class="mt-3">Daftar Mahasiswa</h1>
+                <h1 class="mt-3">Daftar Mahasiswa</h1>         
+
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <ul class="list-group">
                     @foreach( $mahasiswa as $mhs)
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         {{ $mhs->nama }}
-                        <a href="" class="badge bg-info">Detail</a>
+                        <a href="mahasiswa/{{ $mhs->id }}" class="btn btn-info btn-sm">Detail</a>
                     </li>
                     @endforeach
                 </ul>
+                <a href="/mahasiswa/create" class="btn btn-primary my-3">Tambah Data Mahasiswa</a>
                 <!-- <table class="table">
                     <thead class="thead-dark">
                         <tr>

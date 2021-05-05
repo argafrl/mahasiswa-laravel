@@ -26,8 +26,12 @@
                             <td>{{ $mhs->email }}</td>
                             <td>{{ $mhs->jurusan }}</td>
                             <td>
-                                <a href="" class="badge bg-success">Edit</a>
-                                <a href="" class="badge bg-danger">Delete</a>
+                                <a href="/mahasiswa/{{ $mhs->id }}/edit" class="btn btn-success btn-sm">Edit</a>
+                                <form action="/mahasiswa/{{ $mhs->id }}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
